@@ -10,8 +10,14 @@ export default function ElektronskeПристupnicePage() {
     phone: '',
     address: '',
     city: '',
-    membershipType: 'redovan',
+    krsnaSlava: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: 'success' | 'error';
+    text: string;
+  } | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -20,11 +26,61 @@ export default function ElektronskeПристupnicePage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    alert('Захтев за чланство је послат! (Implementirajte backend)');
-    console.log('Membership data:', formData);
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      // Generate current date for joinDate
+      const joinDate = new Date().toLocaleDateString('sr-RS', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+
+      const response = await fetch('/api/membership', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          joinDate,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage({
+          type: 'success',
+          text: data.message || 'Захтев за чланство је успешно послат!',
+        });
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          address: '',
+          city: '',
+          krsnaSlava: '',
+        });
+      } else {
+        setSubmitMessage({
+          type: 'error',
+          text: data.error || 'Дошло је до грешке. Покушајте поново.',
+        });
+      }
+    } catch (error) {
+      setSubmitMessage({
+        type: 'error',
+        text: 'Грешка при слању захтева. Проверите интернет конекцију.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -228,30 +284,42 @@ export default function ElektronskeПристupnicePage() {
 
             <div>
               <label
-                htmlFor="membershipType"
+                htmlFor="krsnaSlava"
                 className="block text-sm font-medium text-gray-700 mb-2"
               >
-                Тип чланства
+                Крсна слава
               </label>
-              <select
-                id="membershipType"
-                name="membershipType"
-                value={formData.membershipType}
+              <input
+                type="text"
+                id="krsnaSlava"
+                name="krsnaSlava"
+                value={formData.krsnaSlava}
                 onChange={handleChange}
+                required
+                placeholder="нпр. Свети Никола, Ђурђевдан..."
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-royal-gold focus:border-transparent"
-              >
-                <option value="redovan">Редовно чланство</option>
-                <option value="pocasno">Почасно чланство</option>
-                <option value="omladina">Омладинско чланство</option>
-              </select>
+              />
             </div>
+
+            {submitMessage && (
+              <div
+                className={`p-4 rounded-lg ${
+                  submitMessage.type === 'success'
+                    ? 'bg-green-100 text-green-800 border border-green-200'
+                    : 'bg-red-100 text-red-800 border border-red-200'
+                }`}
+              >
+                {submitMessage.text}
+              </div>
+            )}
 
             <div className="border-t border-gray-200 pt-6">
               <button
                 type="submit"
-                className="w-full bg-royal-blue text-white py-3 px-6 rounded-lg font-semibold hover:bg-royal-gold transition-colors focus:ring-4 focus:ring-royal-gold/50"
+                disabled={isSubmitting}
+                className="w-full bg-royal-blue text-white py-3 px-6 rounded-lg font-semibold hover:bg-royal-gold transition-colors focus:ring-4 focus:ring-royal-gold/50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Поднеси захтев за чланство
+                {isSubmitting ? 'Шаљем...' : 'Поднеси захтев за чланство'}
               </button>
             </div>
           </form>

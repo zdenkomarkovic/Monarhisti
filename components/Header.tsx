@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import SerbianFlagAnimation from './SerbianFlagAnimation';
-import MonarhistaFlag from './MonarhistaFlag';
-import Navigation from './Navigation';
+import Link from "next/link";
+import SerbianFlagAnimation from "./SerbianFlagAnimation";
+import MonarhistaFlag from "./MonarhistaFlag";
+import Navigation from "./Navigation";
 
 export default function Header() {
   return (
@@ -14,8 +14,17 @@ export default function Header() {
           </Link>
 
           {/* Center: Monarhista Logo/Flag */}
-          <Link href="/" className="flex-grow lg:flex-grow-0 flex justify-center">
-            <MonarhistaFlag />
+          <Link
+            href="/"
+            className="flex-grow lg:flex-grow-0 flex justify-center"
+          >
+            <MonarhistaFlag flag={"/monarhisti.jpg"} />
+          </Link>
+          <Link
+            href="/"
+            className="flex-grow lg:flex-grow-0 flex justify-center"
+          >
+            <MonarhistaFlag flag={"/eu.jpg"} />
           </Link>
 
           {/* Right: Navigation */}
