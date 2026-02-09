@@ -13,6 +13,7 @@ export default function ElektronskeПристupnicePage() {
     krsnaSlava: '',
   });
 
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{
     type: 'success' | 'error';
@@ -28,6 +29,16 @@ export default function ElektronskeПристupnicePage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate privacy policy acceptance
+    if (!privacyAccepted) {
+      setSubmitMessage({
+        type: 'error',
+        text: 'Морате прихватити политику приватности',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitMessage(null);
 
@@ -67,6 +78,7 @@ export default function ElektronskeПристupnicePage() {
           city: '',
           krsnaSlava: '',
         });
+        setPrivacyAccepted(false);
       } else {
         setSubmitMessage({
           type: 'error',
@@ -299,6 +311,28 @@ export default function ElektronskeПристupnicePage() {
                 placeholder="нпр. Свети Никола, Ђурђевдан..."
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-royal-gold focus:border-transparent"
               />
+            </div>
+
+            <div className="flex items-start">
+              <input
+                type="checkbox"
+                id="privacy"
+                checked={privacyAccepted}
+                onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                className="mt-1 h-4 w-4 text-royal-blue focus:ring-royal-gold border-gray-300 rounded"
+              />
+              <label htmlFor="privacy" className="ml-2 text-sm text-gray-700">
+                Прихватам{' '}
+                <a
+                  href="/politika-privatnosti"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-royal-blue hover:text-royal-gold underline"
+                >
+                  политику приватности
+                </a>{' '}
+                и сагласан сам са обрадом личних података
+              </label>
             </div>
 
             {submitMessage && (

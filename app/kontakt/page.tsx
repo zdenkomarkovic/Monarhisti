@@ -10,10 +10,13 @@ export default function KontaktPage() {
     message: '',
   });
 
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+
   const [errors, setErrors] = useState({
     name: '',
     email: '',
     message: '',
+    privacy: '',
   });
 
   const handleChange = (
@@ -29,7 +32,7 @@ export default function KontaktPage() {
 
   const validateForm = () => {
     let isValid = true;
-    const newErrors = { name: '', email: '', message: '' };
+    const newErrors = { name: '', email: '', message: '', privacy: '' };
 
     if (!formData.name.trim()) {
       newErrors.name = 'Ime je obavezno';
@@ -46,6 +49,11 @@ export default function KontaktPage() {
 
     if (!formData.message.trim()) {
       newErrors.message = 'Poruka je obavezna';
+      isValid = false;
+    }
+
+    if (!privacyAccepted) {
+      newErrors.privacy = 'Морате прихватити политику приватности';
       isValid = false;
     }
 
@@ -143,6 +151,38 @@ export default function KontaktPage() {
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                )}
+              </div>
+
+              <div>
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id="privacy"
+                    checked={privacyAccepted}
+                    onChange={(e) => {
+                      setPrivacyAccepted(e.target.checked);
+                      if (errors.privacy) {
+                        setErrors((prev) => ({ ...prev, privacy: '' }));
+                      }
+                    }}
+                    className="mt-1 h-4 w-4 text-royal-blue focus:ring-royal-gold border-gray-300 rounded"
+                  />
+                  <label htmlFor="privacy" className="ml-2 text-sm text-gray-700">
+                    Прихватам{' '}
+                    <a
+                      href="/politika-privatnosti"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-royal-blue hover:text-royal-gold underline"
+                    >
+                      политику приватности
+                    </a>{' '}
+                    и сагласан сам са обрадом личних података
+                  </label>
+                </div>
+                {errors.privacy && (
+                  <p className="mt-1 text-sm text-red-500">{errors.privacy}</p>
                 )}
               </div>
 
