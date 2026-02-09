@@ -1,4 +1,4 @@
-import { AUTHOR } from '@/lib/constants';
+import { AUTHOR } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -7,9 +7,6 @@ export default function Footer() {
         <div className="text-center space-y-2">
           <p className="text-sm">
             © {AUTHOR.year} Српски покрет Монархиста. Сва права задржана.
-          </p>
-          <p className="text-xs text-gray-300">
-            Аутор сајта: {AUTHOR.name} - {AUTHOR.nickname}
           </p>
         </div>
 
