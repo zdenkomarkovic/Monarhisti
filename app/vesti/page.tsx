@@ -22,7 +22,7 @@ export default function VestiPage() {
   ];
 
   return (
-    <div className="py-16 bg-gray-50 min-h-screen">
+    <div className="py-16 min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
         <h1 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12">
           Вести

@@ -71,7 +71,7 @@ export default function KontaktPage() {
   };
 
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16">
       <div className="container mx-auto px-4 max-w-6xl">
         <h1 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12">
           Контакт

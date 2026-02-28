@@ -1,11 +1,12 @@
 // Navigation Items
 export const NAVIGATION_ITEMS = [
-  { label: "Vesti", href: "/vesti" },
-  { label: "Saopštenja", href: "/saopstenja" },
-  { label: "Kontakt", href: "/kontakt" },
-  { label: "Predsedništvo", href: "/predsednistvo" },
-  { label: "Finansijski izveštaji", href: "/finansijski-izvestaji" },
-  { label: "Elektronske pristupnice", href: "/elektronske-pristupnice" },
+  { label: "Вести", href: "/vesti" },
+  { label: "Саопштења", href: "/saopstenja" },
+{ label: "Примедбе и питања", href: "/primedbe" },
+  { label: "Контакт", href: "/kontakt" },
+  { label: "Председништво", href: "/predsednistvo" },
+  { label: "Финансијски извештаји", href: "/finansijski-izvestaji" },
+  { label: "Електронске приступнице", href: "/elektronske-pristupnice" },
 ];
 
 // About Section Content
