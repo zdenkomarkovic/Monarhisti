@@ -2,7 +2,8 @@
 export const NAVIGATION_ITEMS = [
   { label: "Вести", href: "/vesti" },
   { label: "Саопштења", href: "/saopstenja" },
-{ label: "Примедбе и питања", href: "/primedbe" },
+  { label: "Интервју", href: "/#intervju" },
+  { label: "Примедбе и питања", href: "/primedbe" },
   { label: "Контакт", href: "/kontakt" },
   { label: "Председништво", href: "/predsednistvo" },
   { label: "Финансијски извештаји", href: "/finansijski-izvestaji" },
