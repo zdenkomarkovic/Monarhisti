@@ -1,74 +1,78 @@
-export default function PredsedniстvoPage() {
-  // Placeholder data
-  const members = [
-    {
-      id: 1,
-      name: 'Име Презиме',
-      position: 'Председник',
-      bio: 'Кратка биографија члана председништва...',
-    },
-    {
-      id: 2,
-      name: 'Име Презиме',
-      position: 'Потпредседник',
-      bio: 'Кратка биографија члана председништва...',
-    },
-    {
-      id: 3,
-      name: 'Име Презиме',
-      position: 'Генерални секретар',
-      bio: 'Кратка биографија члана председништва...',
-    },
-    {
-      id: 4,
-      name: 'Име Презиме',
-      position: 'Члан председништва',
-      bio: 'Кратка биографија члана председништва...',
-    },
-  ];
+import Image from 'next/image';
 
+export default function PredsedniстvoPage() {
   return (
     <div className="py-16 bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12">
           Председништво
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {members.map((member) => (
-            <div
-              key={member.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-            >
-              <div className="h-64 bg-gradient-to-br from-royal-blue to-royal-gold flex items-center justify-center">
-                <div className="w-32 h-32 rounded-full bg-white/20 flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-              </div>
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-1">
-                  {member.name}
-                </h2>
-                <p className="text-royal-gold font-medium mb-3">
-                  {member.position}
-                </p>
-                <p className="text-gray-600">{member.bio}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Sednica 22.03.2026. */}
+        <article className="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+          <div className="px-6 pt-6 pb-2">
+            <h2 className="text-2xl font-semibold text-royal-blue mb-1">
+              Седница председништва — Крагујевац
+            </h2>
+            <p className="text-sm text-gray-500 mb-6">22. март 2026. године</p>
+          </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-600">
-            Садржај ће бити додат ускоро. Ово је placeholder структура.
-          </p>
-        </div>
+          {/* Fotografija */}
+          <div className="relative w-full h-72 sm:h-96 mb-6">
+            <Image
+              src="/657269603_122170535672935188_8835864690876978056_n.jpg"
+              alt="Председник СПМ Александар Кундачина и нови потпредседник Златко Ковинић"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+            />
+          </div>
+
+          <div className="px-6 pb-8 space-y-6">
+            <p className="text-gray-700 leading-relaxed">
+              На седници председништва одржаној дана 22. 03. 2026. године у Крагујевцу донешене су следеће одлуке:
+            </p>
+
+            <ol className="space-y-3 text-gray-700">
+              <li className="flex gap-3">
+                <span className="font-bold text-royal-blue min-w-[1.5rem]">1.</span>
+                <span>За новог заменика председника изабран је Г-дин <strong>Звонко Ковинић</strong> из Параћина.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="font-bold text-royal-blue min-w-[1.5rem]">2.</span>
+                <span>За новог потпредседника изабран је Г-дин <strong>Златко Ковинић</strong> из Пожаревца.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="font-bold text-royal-blue min-w-[1.5rem]">3.</span>
+                <span>Донета је одлука да се израде чланске карте.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="font-bold text-royal-blue min-w-[1.5rem]">4.</span>
+                <span>Донета је одлука да се помогне Игору Лакатошу из Мрчајеваца.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="font-bold text-royal-blue min-w-[1.5rem]">5.</span>
+                <span>
+                  Донета је одлука да се у Крагујевцу обнове четири важна историјска пројекта у оквиру иницијативе{' '}
+                  <strong>„Обнова Српске задужбине"</strong>:
+                  <ol className="mt-2 ml-4 space-y-1 list-decimal list-inside text-gray-600">
+                    <li>Тартар конак (у лошем стању)</li>
+                    <li>Карађорђев конак</li>
+                    <li>Кућа Др Илије Коранца</li>
+                    <li>Карађорђев дом у Крагујевачкој Рачи</li>
+                  </ol>
+                  <span className="block mt-2 text-sm text-gray-500 italic">
+                    Детаљи и фотографије биће објављени накнадно.
+                  </span>
+                </span>
+              </li>
+            </ol>
+
+            <p className="text-gray-700 leading-relaxed">
+              Ускоро се очекују разговори са представницима удружења пољопривредника.
+            </p>
+          </div>
+        </article>
       </div>
     </div>
   );

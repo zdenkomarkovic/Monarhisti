@@ -8,6 +8,12 @@ export default function Footer() {
           <p className="text-sm">
             © {AUTHOR.year} Српски покрет Монархиста. Сва права задржана.
           </p>
+          <p className="text-xs text-gray-300">
+            Назив: Српски покрет монархиста &nbsp;|&nbsp; ПИБ: 111423540 &nbsp;|&nbsp; Матични број: 28280718 &nbsp;|&nbsp; Заступник: Александар Кундачина
+          </p>
+          <p className="text-xs text-gray-300">
+            За садржај сајта и прикупљање донација одговорно је удружење „Српски покрет монархиста".
+          </p>
         </div>
 
         {/* Social Media Links Placeholder */}

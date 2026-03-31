@@ -1,61 +1,98 @@
-export default function VestiPage() {
-  // Placeholder data
-  const newsItems = [
-    {
-      id: 1,
-      title: 'Наслов вести 1',
-      date: '8. фебруар 2025.',
-      excerpt: 'Кратак опис вести који даје основну информацију о садржају...',
-    },
-    {
-      id: 2,
-      title: 'Наслов вести 2',
-      date: '5. фебруар 2025.',
-      excerpt: 'Кратак опис вести који даје основну информацију о садржају...',
-    },
-    {
-      id: 3,
-      title: 'Наслов вести 3',
-      date: '1. фебруар 2025.',
-      excerpt: 'Кратак опис вести који даје основну информацију о садржају...',
-    },
-  ];
+import Image from 'next/image';
 
+const newsItems = [
+  {
+    id: 2,
+    title: 'Обнова Српске задужбине',
+    date: '2026.',
+    excerpt:
+      'Српски покрет монархиста покреће иницијативу обнове српске задужбине у Крагујевцу. Четири су битна пројекта везана за град Крагујевац:',
+    projects: [
+      'Обнова Тартар конака у Крагујевцу који је у лошем стању',
+      'Обнова Карађорђевог конака у Крагујевцу',
+      'Обнова куће Др Илије Коранца',
+      'Обнова Карађорђевог дома у Крагујевцу',
+    ],
+    images: [
+      '/obnova/655166221_122170681796935188_4157475348207195062_n.jpg',
+      '/obnova/655660752_122170681634935188_3322674968623774196_n.jpg',
+      '/obnova/655814465_122170681736935188_7168272866960789281_n.jpg',
+      '/obnova/655834565_122170681844935188_256885855270531628_n.jpg',
+      '/obnova/655846037_122170681946935188_2331918264560000155_n.jpg',
+      '/obnova/656043401_122170681898935188_3587064646978285869_n.jpg',
+      '/obnova/656068911_122170681424935188_3088102544607483264_n (1).jpg',
+      '/obnova/656068911_122170681424935188_3088102544607483264_n.jpg',
+      '/obnova/656201591_122170681682935188_5463689166806005948_n.jpg',
+    ],
+    source: 'Инфо Служба СПМ',
+  },
+  {
+    id: 1,
+    title: 'Посета Крагујевцу — полагање икебане на спомен обележје Регента Александра I Карађорђевића',
+    date: '2025.',
+    excerpt:
+      'Председник Српског покрета Монархиста Г-дин Александар Кундачина боравио је са руководством у Крагујевцу, где је положена икебана на спомен обележје Њ.К.В Регенту Александру Првом Карађорђевићу. Након полагања икебане, заједно са руководством покрета обишли су Српску Православну Цркву Свете Тројице у Крагујевцу.',
+    projects: null,
+    images: [
+      '/657523475_122170534730935188_7946398511283000395_n.jpg',
+      '/656858454_122170534628935188_7016150804862226220_n.jpg',
+      '/654752737_122170534838935188_3016980075860256621_n.jpg',
+    ],
+    source: 'Инфо Служба СПМ',
+  },
+];
+
+export default function VestiPage() {
   return (
     <div className="py-16 min-h-screen">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12">
           Вести
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="space-y-12">
           {newsItems.map((item) => (
             <article
               key={item.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
             >
-              <div className="h-48 bg-gradient-to-br from-royal-blue to-royal-gold"></div>
-              <div className="p-6">
-                <p className="text-sm text-gray-500 mb-2">{item.date}</p>
-                <h2 className="text-xl font-semibold text-gray-800 mb-3">
+              <div className="px-6 pt-6 pb-2">
+                <p className="text-sm text-gray-500 mb-1">{item.date}</p>
+                <h2 className="text-xl font-semibold text-royal-blue mb-3">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 mb-4">{item.excerpt}</p>
-                <a
-                  href="#"
-                  className="text-royal-blue hover:text-royal-gold font-medium transition-colors"
-                >
-                  Прочитај више →
-                </a>
+                <p className="text-gray-700 leading-relaxed mb-3">{item.excerpt}</p>
+                {item.projects && (
+                  <ul className="mb-4 space-y-1">
+                    {item.projects.map((p, i) => (
+                      <li key={i} className="flex gap-2 text-gray-700">
+                        <span className="text-royal-gold font-bold">•</span>
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 px-4 pb-4">
+                {item.images.map((src, i) => (
+                  <div key={i} className="relative h-48 rounded overflow-hidden">
+                    <Image
+                      src={src}
+                      alt={`${item.title} — слика ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="px-6 pb-4">
+                <p className="text-sm text-gray-500 italic">{item.source}</p>
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-gray-600">
-            Садржај ће бити додат ускоро. Ово је placeholder структура.
-          </p>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ export const NAVIGATION_ITEMS = [
   { label: "Председништво", href: "/predsednistvo" },
   { label: "Финансијски извештаји", href: "/finansijski-izvestaji" },
   { label: "Електронске приступнице", href: "/elektronske-pristupnice" },
+  { label: "Донирај", href: "/doniraj" },
 ];
 
 // About Section Content

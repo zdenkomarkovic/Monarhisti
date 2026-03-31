@@ -135,14 +135,14 @@ export default function PolitikaPrivatnostiPage() {
               <li>
                 <strong>Email:</strong>{' '}
                 <a
-                  href="mailto:kontakt@monarhistisrbije.rs"
+                  href="mailto:acokundacina032@gmail.com"
                   className="text-royal-blue hover:text-royal-gold underline"
                 >
-                  kontakt@monarhistisrbije.rs
+                  acokundacina032@gmail.com
                 </a>
               </li>
               <li>
-                <strong>Телефон:</strong> +381 11 234 5678
+                <strong>Телефон:</strong> +381605443315
               </li>
               <li>
                 <strong>Адреса:</strong> Београд, Србија
