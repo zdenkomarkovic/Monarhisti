@@ -1,16 +1,16 @@
-export default function DonirajPage() {
+export default function DonirajSection() {
   return (
-    <div className="py-16 min-h-screen">
+    <section id="doniraj-udruzenje" className="py-16">
       <div className="container mx-auto px-4 max-w-2xl">
-        <h1 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12">
+        <h2 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12">
           Донирај удружење
-        </h1>
+        </h2>
 
         <div className="bg-white rounded-lg shadow-lg p-8 space-y-8">
           <div>
-            <h2 className="text-xl font-semibold text-royal-blue mb-4">
+            <h3 className="text-xl font-semibold text-royal-blue mb-4">
               Жиро рачун удружења
-            </h2>
+            </h3>
             <div className="space-y-4">
               <div className="border border-gray-200 rounded-lg p-4">
                 <p className="text-sm text-gray-500 mb-1">Динарски рачун</p>
@@ -37,6 +37,6 @@ export default function DonirajPage() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,5 +1,6 @@
 // Navigation Items
 export const NAVIGATION_ITEMS = [
+  { label: "Донирај удружење", href: "/#doniraj-udruzenje" },
   { label: "Вести", href: "/vesti" },
   { label: "Саопштења", href: "/saopstenja" },
   { label: "Интервју", href: "/#intervju" },
@@ -8,7 +9,6 @@ export const NAVIGATION_ITEMS = [
   { label: "Председништво", href: "/predsednistvo" },
   { label: "Финансијски извештаји", href: "/finansijski-izvestaji" },
   { label: "Електронске приступнице", href: "/elektronske-pristupnice" },
-  { label: "Донирај", href: "/doniraj" },
 ];
 
 // About Section Content

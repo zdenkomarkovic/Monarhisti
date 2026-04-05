@@ -21,12 +21,17 @@ const config: Config = {
       },
       animation: {
         'wave': 'wave 3.5s ease-in-out infinite',
+        'marquee': 'marquee 20s linear infinite',
       },
       keyframes: {
         wave: {
           '0%, 100%': { transform: 'rotateY(0deg) translateX(0)' },
           '25%': { transform: 'rotateY(5deg) translateX(2px)' },
           '75%': { transform: 'rotateY(-5deg) translateX(-2px)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
     },
