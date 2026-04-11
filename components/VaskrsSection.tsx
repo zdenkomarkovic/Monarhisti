@@ -14,14 +14,11 @@ export default function VaskrsSection() {
           />
         </div>
         <p className="text-lg sm:text-xl font-semibold text-royal-blue leading-relaxed">
-          Свим верницима римокатоличке вероисповести, Српски покрет Монархиста упућује —
+          Српски Покрет Монархиста свим верницима православне вере, честита Васкршње Празнике!
         </p>
         <h2 className="text-3xl sm:text-4xl font-bold text-royal-gold mt-4 mb-4 uppercase tracking-wide">
-          Срећан Васкрс / Ускрс!
+          ХРИСТОС ВОСКРЕСЕ!
         </h2>
-        <p className="text-lg text-gray-700">
-          Да у миру и слози прославите ускршње празнике!
-        </p>
       </div>
     </section>
   );
