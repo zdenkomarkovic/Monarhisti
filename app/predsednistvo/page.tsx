@@ -3,19 +3,6 @@ import Image from 'next/image';
 export default function PredsedniстvoPage() {
   return (
     <div className="py-16 bg-gray-50 min-h-screen">
-      {/* Трака са саопштењем */}
-      <div className="bg-royal-blue text-white py-2 overflow-hidden border-b-2 border-royal-gold">
-        <div className="flex items-center">
-          <span className="bg-royal-gold text-royal-blue px-4 py-1 text-xs font-bold whitespace-nowrap flex-shrink-0 uppercase tracking-wider">
-            Саопштење
-          </span>
-          <div className="flex-1 overflow-hidden ml-3">
-            <p className="ticker-text text-sm font-medium">
-              ● Изабрани нови потпредседници покрета: Златко Ковинић из Параћина — заменик председника Српског покрета монархиста, и Златко Јовић — потпредседник покрета ●
-            </p>
-          </div>
-        </div>
-      </div>
 
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12 mt-12">

@@ -44,7 +44,7 @@
 
 .ticker-text {
   display: inline-block;
-  animation: ticker 30s linear infinite;
+  animation: ticker 45s linear infinite;
   white-space: nowrap;
 }
 

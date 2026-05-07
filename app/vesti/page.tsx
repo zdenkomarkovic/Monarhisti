@@ -40,20 +40,6 @@ const news1 = {
   source: 'Инфо Служба СПМ',
 };
 
-function Ticker({ label, text }: { label: string; text: string }) {
-  return (
-    <div className="bg-royal-blue text-white py-2 overflow-hidden border-b-2 border-royal-gold">
-      <div className="flex items-center">
-        <span className="bg-royal-gold text-royal-blue px-4 py-1 text-xs font-bold whitespace-nowrap flex-shrink-0 uppercase tracking-wider">
-          {label}
-        </span>
-        <div className="flex-1 overflow-hidden ml-3">
-          <p className="ticker-text text-sm font-medium">{text}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function NewsArticle({ item }: { item: typeof news1 }) {
   return (
@@ -98,11 +84,6 @@ function NewsArticle({ item }: { item: typeof news1 }) {
 export default function VestiPage() {
   return (
     <div className="py-16 min-h-screen">
-      <Ticker
-        label="Обнова"
-        text="● ОБНОВА ИСТОРИЈСКИХ ЗНАМЕНИТОСТИ У КРАГУЈЕВЦУ: 1. ТАРТАР КОНАК &nbsp;&nbsp; 2. КАРАЂОРЂЕВ КОНАК &nbsp;&nbsp; 3. КОНАК ДР ИЛИЈЕ КОЛОВИЋА ●"
-      />
-
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-3xl lg:text-4xl font-bold text-royal-blue text-center mb-12 mt-12">
           Вести
@@ -112,11 +93,6 @@ export default function VestiPage() {
           <NewsArticle item={news2} />
         </div>
       </div>
-
-      <Ticker
-        label="Посета"
-        text="● ПОСЕТА КРАГУЈЕВЦУ — ПОЛАГАЊЕ ИКЕБАНЕ НА СПОМЕН ОБЕЛЕЖЈЕ РЕГЕНТА АЛЕКСАНДРА I КАРАЂОРЂЕВИЋА ●"
-      />
 
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="space-y-12 mt-12">
