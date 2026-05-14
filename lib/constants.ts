@@ -9,6 +9,7 @@ export const NAVIGATION_ITEMS = [
   { label: "Председништво", href: "/predsednistvo" },
   { label: "Финансијски извештаји", href: "/finansijski-izvestaji" },
   { label: "Електронске приступнице", href: "/elektronske-pristupnice" },
+  { label: "Статут", href: "/statut" },
 ];
 
 // About Section Content
@@ -23,6 +24,11 @@ Naša vizija je moderna, demokratska, evropska Srbija sa ustavnom monarhijom koj
 
 // YouTube Videos
 export const YOUTUBE_VIDEOS = [
+  {
+    id: "ZTFgT4wFBTU",
+    title: "Српски покрет монархиста",
+    description: "Видео Српског покрета монархиста",
+  },
   {
     id: "2p-7mY3_mSA",
     title: "Monarhija u Srbiji",
