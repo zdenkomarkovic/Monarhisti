@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ABOUT_TEXT } from "@/lib/constants";
 
 export default function AboutSection() {
@@ -44,6 +45,19 @@ export default function AboutSection() {
             Придруживање покрету не треба да буде чланство на папиру, већ спремност
             да се својим радом допринесе Србији.
           </p>
+        </div>
+
+        {/* Слика */}
+        <div className="mt-12 flex justify-center">
+          <div className="relative w-full max-w-2xl aspect-video rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/790457678_122192269490935188_6147850850731123991_n.jpg"
+              alt="Српски Покрет Монархиста"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 672px"
+            />
+          </div>
         </div>
 
         {/* Decorative Element */}
